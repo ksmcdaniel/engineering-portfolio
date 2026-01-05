@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  .row {
+    display: flex;
+    gap: 16px;
+    padding: 8px;
+  }
+
+  .card {
+    flex: 1;
+    text-align: center;
+  }
+
+  .image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .caption {
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 8px;
+  }
+
+  @media (max-width: 700px) {
+    .row {
+      flex-direction: column;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="row">
+  <div class="card">
+    <div class="image">
+      <img src="https://cdn.myportfolio.com/7f5838f0-17dd-4a11-a874-c0f9ec860455/75a84e73-e375-4e82-9cc7-b26010d814a6_rw_1920.jpeg?h=e6702e12ad039ed8ea1cdc46db75a9a3" alt="">
+    </div>
+    <div class="caption">
+      Me after winning the Ottawa Fall Colors Marathon.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="image">
+      <img src="https://cdn.myportfolio.com/7f5838f0-17dd-4a11-a874-c0f9ec860455/c3eb3d75-b347-4d32-8ca4-ede6a44d51a7_rw_1920.jpeg?h=72b42ce74ed2486e6eff47d540fb71ce" alt="">
+    </div>
+    <div class="caption">
+      View from the summit of the Acatenango Volcano in Guatemala.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="image">
+      <img src="https://cdn.myportfolio.com/7f5838f0-17dd-4a11-a874-c0f9ec860455/e814667d-040a-42c1-bdd0-bcb0d4c36feb_rw_1920.jpeg?h=be0431d1c7d8b81f349d41f3d623e6ef" alt="">
+    </div>
+    <div class="caption">
+      Sunrise hiking in Guatemala.
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
