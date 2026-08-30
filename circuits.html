@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experience</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="site-header">
+    <div class="site-header-text">
+      <p class="site-header-title">Kieran McDaniel</p>
+      <span class="site-header-subtitle">Electrical Engineering Student @ Harvard</span>
+    </div>
+    <a href="index.html">
+      <img class="site-header-profile-picture" src="assets/pp1.png" alt="Profile picture of Kieran McDaniel">
+    </a>
+  </div>
+  <nav class="nav-bar">
+    <div class="nav-toggle" id="navToggle" aria-label="Open navigation" tabindex="0">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="nav-tabs" id="navTabs">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="circuits.html">Circuits</a></li>
+      <li><a href="resume.html">Resume</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <script>
+  const navToggle = document.getElementById('navToggle');
+  const navTabs = document.getElementById('navTabs');
+
+  navToggle.addEventListener('click', () => {
+    navTabs.classList.toggle('open');
+    if (window.innerWidth <= 700) {
+      document.body.classList.toggle('menu-open', navTabs.classList.contains('open'));
+    }
+  });
+  </script>
+
+  <section class="experience-list" aria-label="Internship experience list">
+
+    <article class="experience-item">
+      <a href="https://icube.unistra.fr/" target="_blank">
+        <img class="company-logo" src="logos/1.png" alt="ICube logo">
+      </a>
+      
+      <div class="experience-content">
+        <h3 class="role">DAC out of Discrete Transistors</h3>
+        <p><strong> Overview: </strong>  Using FETs as voltage-controlled switches and programming an Arduino to create different square wave patterns. The first op amp is an inverting summer, which adds currents coming from the four inputs and converts them to a voltage. The second op amp is simply an inverter and can be tuned to provide some gain.
+</p>
+      
+       <div class="three-photo-row", style="margin-bottom: 10px">   <div class="three-photo"> <img src="dac1.png" alt="Photo 1"> </div> <div class="three-photo"> <img src="dac2.png" alt="Photo 2"> </div> <div class="three-photo"> <img src="dac3.png" alt="Photo 3"> </div> </div> 
+
+       <p> LEFT: Close-up of DAC input circuitry with FETs as voltage-controlled switches. CENTER: 4 DAC inputs creating 16 possible output combinations. RIGHT: Voltage ladder showing 16 DAC outputs. </p>
+
+      </div>
+    </article>
+
+    <article class="experience-item">
+      <a href="https://www.actemium.ch/" target="_blank">
+        <img class="company-logo" src="logos/2.png" alt="Actemium logo">
+      </a>
+      <div class="experience-content">
+        <h3 class="role">ADC out of Discrete Transistors</h3>
+        <p><strong> Overview: </strong> I took my DAC and added a comparator op amp with the inverting input connected to a fixed voltage source (Vin) and the non-inverting input connected to the DAC output. hen the DAC output was greater than Vin, the ADC output would hit VDD, since the circuit has such high gain. When the DAC output was less than Vin, the ADC output would hit ground.</p>
+
+         <div class="three-photo-row", style="margin-bottom: 10px">   <div class="three-photo"> <img src="adc1.png" alt="Photo 1"> </div> <div class="three-photo"> <img src="adc2.png" alt="Photo 2"> </div> <div class="three-photo"> <img src="adc3.png" alt="Photo 3"> </div> </div> 
+
+            <p> The point on the DAC input ladder when the ADC transitions from ground to VDD depends on the value of Vin.</p>
+
+
+      </div>
+    </article>
+
+     <article class="experience-item">
+      <a href="https://www.actemium.ch/" target="_blank">
+        <img class="company-logo" src="logos/3.png" alt="Actemium logo">
+      </a>
+      <div class="experience-content">
+        <h3 class="role">AM Radio Simulation</h3>
+        <p><strong> Overview: </strong> I used LTspice to simulate an amplitude modulating circuit in a radio, using simple 20kHz and 10kHz sine waves as my signal and 500 kHz and 1500 kHz carrier frequencies.</p>
+
+         <div class="single-photo" style="width: 900px; height: 450px"> 
+
+                  <img src="assets/am1.png"
+                       alt="PNP current mirror voltage sweep">
+
+                  <div class="single-photo-caption">
+                      <p style="text-align: center">
+                          The first stage of the circuit applied a DC offset of 0.75V to both the signal and the carrier sine waves to keep the amplitudes bounded. The op amp series that follows essentially multiplies the two inputs together (Vout = V1 * V2), which creates an AM signal with a high carrier frequency and a low envelop frequency as shown above on the right. The signals have a low frequency component that distorts them so we add a high pass filter at the end to achieve a clean signal.
+                      </p>
+
+                  </div>
+              </div>
+
+                 <div class="single-photo" style="width: 900px; height: 300px;"> 
+
+                  <img src="assets/am2.png"
+                       alt="PNP current mirror voltage sweep">
+
+                  <div class="single-photo-caption"; style="margin-bottom: 0px">
+                      <p style="text-align: center; ">
+                          The next stage of the circuits adds the AM signals from the two channels together. There is a second op amp after the summer to provide some gain. The final, dual-channel AM signal is shown above on the right.
+                      </p>
+
+                  </div>
+              </div>
+
+               <div class="single-photo" style="width: 900px; height: 300px;"> 
+
+                  <img src="assets/am3.png"
+                       alt="PNP current mirror voltage sweep">
+
+                  <div class="single-photo-caption">
+                      <p style="text-align: center">
+                          Finally, we have second order filters to separate the high and low carrier frequencies from each other (left). The AM signals then run through an envelope tracking circuit to kill the high frequency carrier and recover the original signals. We run the output through a low pass filter to smooth the signal (right) and then can put it through a gain stage to amplify it before sending it to a speaker. This is how an AM radio with multiple channels works!
+                      </p>
+
+                  </div>
+              </div>
+
+      </div>
+    </article>
+
+     <article class="experience-item">
+      <a href="https://www.actemium.ch/" target="_blank">
+        <img class="company-logo" src="logos/4.png" alt="Actemium logo">
+      </a>
+      <div class="experience-content">
+        <h3 class="role">Audio Amplifier</h3>
+        <p><strong> Overview: </strong> Non-inverting input amplifier with tunable gain using a potentiometer and built-in frequency filtering. </p>
+
+            <div class="single-photo"; style="width: 550px"> 
+
+                  <img src="assets/aa1.png"
+                       alt="PNP current mirror voltage sweep">
+
+                  <div class="single-photo-caption">
+                      <p style="text-align: center">
+                          The first stage is a non-inverting input amplifier with a fixed and a variable feedback resistor for tunable gain. The second stage is a second-order high pass filter to isolate the higher frequencies of our song. The third stage provides some gain before the signal is sent to the speaker. 
+                      </p>
+
+                  </div>
+              </div>
+
+              <video width="640" height="360" controls poster="gel3.png">
+    <source src="assets/videos/1.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+      </div>
+    </article>
+
+  </section>
+
+
+  <footer class="site-footer">
+  <p>© 2026 Kieran McDaniel &mdash; Electrical Engineering Student @ Harvard</p>
+  <p>
+    <a href="index.html" class="footer-link">
+      <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" style="vertical-align:middle;"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+      <span class="footer-link-text">Home</span>
+    </a> |
+    <a href="https://github.com/ksmcdaniel" target="_blank" class="footer-link">
+      <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" style="vertical-align:middle;"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.5 2.87 8.32 6.84 9.67.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.36-3.37-1.36-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 6.84c.85.004 1.71.12 2.51.35 1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.07.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.58.69.48A10.01 10.01 0 0 0 22 12.26C22 6.58 17.52 2 12 2z"/></svg>
+      <span class="footer-link-text">GitHub</span>
+    </a> |
+    <a href="https://www.linkedin.com/in/kieran-mcdaniel-357561210/" target="_blank" class="footer-link">
+      <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" style="vertical-align:middle;"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm15.5 10.28h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z"/></svg>
+      <span class="footer-link-text">LinkedIn</span>
+    </a> |
+    <a href="contact.html" class="footer-link">
+      <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" style="vertical-align:middle;"><path d="M21 6.5a2.5 2.5 0 0 0-2.5-2.5h-13A2.5 2.5 0 0 0 3 6.5v11A2.5 2.5 0 0 0 5.5 20h13a2.5 2.5 0 0 0 2.5-2.5v-11zm-2.5-.5a.5.5 0 0 1 .5.5v.379l-8 5.333-8-5.333V6a.5.5 0 0 1 .5-.5h15zm.5 12a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5V8.121l7.5 5 7.5-5V18z"/></svg>
+      <span class="footer-link-text">Contact</span>
+    </a>
+  </p>
+</footer>
+</body>
+</html>
